@@ -25,6 +25,7 @@ public class CodeCoverageData implements CIData {
 		cc = new CodeCoverage(projectid);
 	}
 	
+	@Autowired
 	public CodeCoverageData() {
 		
 	}
