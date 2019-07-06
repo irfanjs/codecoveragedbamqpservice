@@ -1,4 +1,4 @@
-package com.infy.ci.codecoveragedbamqpservice;
+/*package com.infy.ci.codecoveragedbamqpservice;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -99,4 +99,4 @@ public class RPCServer {
 		}
 
 	}
-}
+}*/
