@@ -5,12 +5,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class CodeCoverageHelper {
 	// static Logger log = Logger.getLogger(CodeCoverageHelper.class.getName());
 	
+	private final Logger logger = LoggerFactory.getLogger(CodeCoverageHelper.class);
 	static private CodeCoverageHelper cihelper;
 	private final static Object cihelperLock = new Object();
 	private CodeCoverageHelper(){
@@ -52,7 +56,10 @@ public class CodeCoverageHelper {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public String getJSONDataForChartPivot(List<Map<String, Object>> data) throws JsonProcessingException{		
+	public String getJSONDataForChartPivot(List<Map<String, Object>> data) throws JsonProcessingException{	
+		
+		logger.info("in the getJSONDataForChartPivot method" );
+		
 		ObjectMapper mapper = new ObjectMapper();
 		ChartData chartData = new ChartData();
 		chartData.setCategories(new ArrayList<String>());

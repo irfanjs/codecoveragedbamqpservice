@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,6 +19,8 @@ import com.google.gson.Gson;
 
 @Component
 public class CodeCoverageData implements CIData {
+	
+	private final Logger logger = LoggerFactory.getLogger(CodeCoverageData.class);
 
 	@Autowired
 	CodeCoverage cc;
@@ -250,9 +254,13 @@ public class CodeCoverageData implements CIData {
 	private String getJSONDataAllModulesAggregate(List<Map<String, Object>> data)
 			throws JsonProcessingException, IOException {
 		if (null != data) {
+			logger.info(" got the data now in getJSONDataAllModulesAggregate method");
+			  
 			// log.debug("the size of data in aggregate block " + data.size());
 			return CodeCoverageHelper.getInstance().getJSONDataForChartPivot(data);
 		} else {
+			
+			logger.info(" data is not there , some exception");
 			throw new IOException("Build data for specified build id not found");
 		}
 	}
